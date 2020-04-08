@@ -20,25 +20,26 @@ export class RentComponent implements OnInit {
   msgError = null;
   msgSuccess = null;
 
-  constructor(private clientService: ClientsService, private toolsService: ToolsService, private rentService: RentService) {
-    this.ferramentasService = rentService;
+  constructor(private toolsService: ToolsService, private rentService: RentService) {
     rentService.logado();    
   }
 
   ngOnInit() {
-
-    this.ferramentas = this.ferramentasService.getFerramentas();
-
-    this.list();
-    this.clientService.list().subscribe(dados => this.clients = dados);
-    this.toolsService.list().subscribe(dados => this.tools = dados);
+    this.getAll();
   }
+
+  getAll(){
+    this.rentService.getAll();
+  }
+
+
 
   list() {
     this.rentService.list().subscribe(dados => this.rents = dados);
   }
   logoOut(){
     localStorage.setItem("acesso", "false");
+    localStorage.setItem("usuarioAtual", "false");
   }
 
   listarDisponiveis(){

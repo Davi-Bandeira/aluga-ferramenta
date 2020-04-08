@@ -8,34 +8,46 @@ import { Users } from './../login/users';
 })
 export class AuthService {
 
-  private usuarioAutenticado: boolean = false;
-  mostrarMenuEmitter = new EventEmitter<boolean>();
-
   constructor(private router: Router) { }
 
   fazerLogin(users: Users){
 
-    var usuarios = JSON.parse(localStorage.getItem("dadosFerramenta"));
+    var usuarios = JSON.parse(localStorage.getItem("dadosUsuario"));
 
     var usuarioNome = users.nome;
     var usuarioSenha = users.senha;
+    var usuario;
+    var obj = [];
 
-    if(usuarioNome === "Davi" && usuarioSenha === "2248"){
-        this.usuarioAutenticado = true;
-        this.mostrarMenuEmitter.emit(true);
+    obj = usuarios.find(item => item.nome.match(usuarioNome));
+    usuario = Object.values(obj);
+
+  
+    if(usuarioNome === usuario[0] && usuarioSenha === usuario[1]){
         
         localStorage.setItem("acesso", "true");
 
         this.router.navigate(['/tools']);
         window.alert("Usuário Autenticado!");
+        this.setUsuarioAtual(usuarioNome);
+
         
     }else{
 
       alert("Usuário ou senha inválidos.");
 
-      this.usuarioAutenticado = false;
-      this.mostrarMenuEmitter.emit(false);
     }
+  }
 
+  setUsuarioAtual(usuarioNome: String){
+    var usuarios = JSON.parse(localStorage.getItem("dadosUsuario"));
+
+    var usuario;
+    var obj = [];
+
+    obj = usuarios.find(item => item.nome.match(usuarioNome));
+    usuario = Object.values(obj);
+
+    localStorage.setItem("usuarioAtual", usuario[2]);
   }
 }

@@ -19,7 +19,7 @@ export class ClientsComponent implements OnInit {
   msgError = null;
   msgSuccess = null;
 
-  constructor(private clientsService: ClientsService, private datePipe: DatePipe, private router: Router) { }
+  constructor(private clientsService: ClientsService, private datePipe: DatePipe, private router: Router) {}
 
   ngOnInit() {
     this.list();
@@ -27,6 +27,7 @@ export class ClientsComponent implements OnInit {
 
   fazerCadastro(){
     this.clientsService.fazerCadastro(this.users);
+
   }
 
   list() {

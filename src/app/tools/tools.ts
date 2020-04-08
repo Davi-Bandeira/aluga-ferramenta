@@ -1,5 +1,5 @@
 export class Tools{
-    id: number;
+    id: string;
     nome: string;
     disponivel: string;
     valor: string;

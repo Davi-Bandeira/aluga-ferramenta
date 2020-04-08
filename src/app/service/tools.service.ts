@@ -27,15 +27,27 @@ export class ToolsService {
 
   getAll(){
     var dados = JSON.parse(localStorage.getItem("dadosFerramenta")); 
+    var usuarioID = localStorage.getItem("usuarioAtual");
     
-    this.renderLine(dados);
+    var obj = [];
+
+    dados.forEach(function(tool) {
+      if(tool.id == usuarioID){
+        obj.push(tool);
+      }
+    });
+    
+    this.renderAll(obj);
   }
 
   cadastrarFerramenta(tools: Tools){
 
+    var id = JSON.parse(localStorage.getItem("usuarioAtual"));
+  
     var nome = tools.nome;
     var status = "Disponivel";
     var valor = tools.valor;
+    var ID = id;
 
     var dados = JSON.parse(localStorage.getItem("dadosFerramenta"));
 
@@ -47,7 +59,8 @@ export class ToolsService {
     var auxRegistro = {
       nome: nome,
       status: status,
-      valor: valor 
+      valor: valor,
+      id: ID
     }
 
     dados.push(auxRegistro);
@@ -62,9 +75,18 @@ export class ToolsService {
 
   buscar(term: any){
     var dados = JSON.parse(localStorage.getItem("dadosFerramenta"));
+    var usuarioID = localStorage.getItem("usuarioAtual");
+    
+    var obj = [];
     var toolsFound = [];
 
     dados.forEach(function(tool) {
+      if(tool.id == usuarioID){
+        obj.push(tool);
+      }
+    });
+
+    obj.forEach(function(tool) {
       if(tool.nome == term){
         toolsFound.push(tool);
       }

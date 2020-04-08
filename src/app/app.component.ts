@@ -1,6 +1,6 @@
 import { AuthService } from './service/auth.service';
-import { Component, NgModule } from '@angular/core';
-import {  } from '@angular/router';
+import { Component} from '@angular/core';
+
 
 @Component({
   selector: 'app-root',
@@ -9,17 +9,13 @@ import {  } from '@angular/router';
 })
 
 export class AppComponent {
-  title = 'commerce-ui';
-
-  mostrarMenu: boolean = false;
+  title = 'Aluga-ferramenta';
 
   constructor(private authService: AuthService){
 
   }
 
   NgOnInit(){
-    this.authService.mostrarMenuEmitter.subscribe(
-      mostrar => this.mostrarMenu = mostrar
-    );
+  
   }
 }

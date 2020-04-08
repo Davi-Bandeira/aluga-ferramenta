@@ -22,7 +22,6 @@ export class ToolsComponent implements OnInit {
 
   ngOnInit() {
     this.getAll();
-    this.list();
   }
   getAll(){
     this.toolsService.getAll();
@@ -31,27 +30,27 @@ export class ToolsComponent implements OnInit {
   cadastrarFerramenta(){
     this.toolsService.cadastrarFerramenta(this.tools);
     event.preventDefault();
-
-    var fnome = document.getElementById("nomeTool");
     
   }
 
   removeAll(){
     if(localStorage.getItem("dadosFerramenta")){
       localStorage.removeItem("dadosFerramenta");
+      window.location.reload();
     }
-
     this.toolsService.buscar('false');
   }
 
   logoOut(){
     localStorage.setItem("acesso", "false");
+    localStorage.setItem("usuarioAtual", "false");
   }
 
   buscar(){
-    var term = document.getElementById("filtro").value;
+    var term = (<HTMLInputElement> document.getElementById("filtro")).value;
 
     this.toolsService.buscar(term);
+
   }
   
   remove(row: any){
