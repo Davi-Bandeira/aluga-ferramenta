@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row">
+        <form class="container">
+            <div class="form-group">
+              <label for="name">Usuário</label>
+              <input type="text" [(ngModel)]="users.nome" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Usuário">
+            </div>
+            <div class="form-group">
+              <label for="senha">Senha</label>
+              <input type="password" [(ngModel)]="users.senha" name="senha" class="form-control" id="exampleInputPassword1" placeholder="Senha">
+            </div>
+            <button type="submit" class="btn btn-primary" (click)="fazerLogin()">Enviar</button>
+            <br>
+            <button type="submit" class="btn btn-primary" (click)="fazerCadastro()">Cadastre se</button>
+        </form>
+    </div>
+</div>
+
+
+<div *ngIf="msgError" class="alert alert-danger">
+    {{msgError}}
+</div>
+
+<div *ngIf="msgSuccess" class="alert alert-success">
+    {{msgSuccess}}
+</div>

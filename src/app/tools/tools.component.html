@@ -1,0 +1,78 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item  active">
+          <a class="nav-link " routerLink="/tools">Cadastrar Ferramentas</a>
+        </li>
+        <li class="nav-item  active">
+          <a class="nav-link" routerLink="/rent" id="alugar">Alugar Ferramentas</a>
+        </li>
+      </ul>
+      <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+
+        <div class="btn-group" role="group">
+          <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          </button>
+          <div id="dropdown" class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+            <a id="logoOut" class="dropdown-item" href="#" (click)="logoOut()">Logo out</a>
+          </div>
+        </div>
+      </div>
+    </div>
+</nav>  
+
+
+<div class="container">
+    <div id="formTools">
+        <p class="h4 mb-4">Cadastrar Ferramenta</p>
+        <div class="form-group">
+            <input type="text" [(ngModel)]="tools.nome" name="nomeTool" class="form-control" id="nomeTool" placeholder="Ferramenta">
+        </div>
+        <div class="form-group">
+            <input currencyMask [(ngModel)]="tools.valor" name="valorTool" class="form-control" id="valorTool" placeholder="R$ 00.00/dia" [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',', align:'left'}"/>
+        </div>
+        <button type="submit" class="btn btn-primary" (click)="cadastrarFerramenta()">Cadastrar</button>        
+    </div>
+</div>
+
+
+<div class="container" id="table">
+  <div class="panel panel-default">
+    <div class="panel-heading">Lista de Ferramentas</div>
+
+    <div class="panel-body">
+      
+        <form class="form-inline">
+
+          <div class="form-group">
+
+            <input 
+            type="text"
+            class="form-control"
+            id="filtro"
+            placeholder="Qual ferramenta você procura?"
+            >
+          </div>
+
+          <button type="button" class="btn btn-info" (click)="buscar()">Buscar</button>
+          <button id="danger" type= 'button' class='btn btn-danger' (click)="removeAll()">Remover Todos</button>
+        </form>
+      
+    </div>
+        
+    <div class="table-responsive">
+      <table class="table table-hover table-bordered" id="ferramentas">
+        <thead id="thead">
+          <tr>
+            <td>Nome</td>
+            <td>Valor</td>
+            <td>Status</td>
+            <td>Remover</td>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+

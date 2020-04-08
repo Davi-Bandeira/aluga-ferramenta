@@ -1,0 +1,41 @@
+#navbarTogglerDemo01{
+    margin-left: 10px;
+    font-size: 18px;
+}
+#alugar{
+    margin-left: 15px;
+}
+#dropdown{
+    margin-left: -100px;
+    background-color: #adb5bd; 
+    margin-top: 10px;
+    border-radius: 10px;
+}
+#logoOut{
+    margin-left: 18px;
+}
+#formTools{
+    margin-top: 20px;
+    margin-left: 20px;
+}
+#nomeTool{
+    width: 400px;
+}
+#valorTool{
+    width: 400px;
+}
+#ferramentas{
+    margin: 0 auto;
+    background-color:#f8f9fa;;
+    border-radius: 10px;
+    padding: 10px;
+}
+#thead{
+    background: #9a9a9c57;
+}
+#table{
+    margin-top: 20px;
+}
+#danger{
+    margin-left: 3px;
+}

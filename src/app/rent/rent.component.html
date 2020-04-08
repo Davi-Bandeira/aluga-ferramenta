@@ -1,0 +1,98 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item  active">
+          <a class="nav-link " routerLink="/tools">Cadastrar Ferramentas</a>
+        </li>
+        <li class="nav-item  active">
+          <a class="nav-link" routerLink="/rent" id="alugar">Alugar Ferramentas</a>
+        </li>
+      </ul>
+      <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+
+        <div class="btn-group" role="group">
+          <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          </button>
+          <div id="dropdown" class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+            <a id="logoOut" class="dropdown-item" href="#" (click)="logoOut()">Logo out</a>
+          </div>
+        </div>
+      </div>
+    </div>
+</nav>  
+
+<div id="option">
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="exampleRadios" (click)="listarDisponiveis()" id="exampleRadios1" value="option1" checked>
+    <label class="form-check-label" for="exampleRadios1" (click)="listarDisponiveis()">
+      Alugar
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="exampleRadios" (click)="listarAlugadas()" id="exampleRadios2" value="option2">
+    <label class="form-check-label" for="exampleRadios2" (click)="listarAlugadas()">
+      Alugados
+    </label>
+  </div>
+</div>
+
+<div class="container" id="tableAlugar" style="display: block;">
+  <div class="panel panel-default">
+    <div class="panel-heading">Lista de Ferramentas</div>    
+    <div class="table-responsive">
+      <table class="table table-hover table-bordered" id="ferramentas">
+        <thead id="thead">
+          <tr>
+            <td>Nome</td>
+            <td>Valor</td>
+            <td>Status</td>
+            <td>Alugar</td>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="container" id="tableAlugadas" style="display: none;">
+  <div class="panel panel-default">
+    <div class="panel-heading">Lista de Ferramentas Alugadas</div>    
+    <div class="table-responsive">
+      <table class="table table-hover table-bordered" id="ferramentas">
+        <thead id="thead">
+          <tr>
+            <td>Nome</td>
+            <td>Valor</td>
+            <td>Status</td>
+            <td>Devolver</td>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<!--
+<form class="text-center border border-light p-5">
+
+    <p class="h4 mb-4">Lista de Ferramentas</p>
+
+    
+    <ul>
+        <li *ngFor="let ferramenta of ferramentas">
+            {{ferramenta}}
+     </li>
+    </ul>
+</form>
+
+<div *ngIf="msgError" class="alert alert-danger">
+    {{msgError}}
+</div>
+
+<div *ngIf="msgSuccess" class="alert alert-success">
+    {{msgSuccess}}
+</div>
+-->
