@@ -21,7 +21,7 @@
     "@angular/router": "^8.2.14",
     "angular2-materialize": "^15.1.10",
     "bootstrap": "^4.3.1",
-    "jquery": "^2.2.4",
+    "jquery": "^3.4.0",
     "materialize-css": "^1.0.0-rc.2",
     "ng2-currency-mask": "^5.3.1",
     "rxjs": "~6.4.0",
