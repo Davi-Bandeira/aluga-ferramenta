@@ -9,7 +9,9 @@ import { Component} from '@angular/core';
 })
 
 export class AppComponent {
-  title = 'Aluga-ferramenta';
+  title = 'Aluga-ferramenta'; 
+
+  
 
   constructor(private authService: AuthService){
 

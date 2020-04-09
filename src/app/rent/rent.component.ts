@@ -1,5 +1,4 @@
 import { ToolsService } from '../service/tools.service';
-import { ClientsService } from '../service/clients.service';
 import { Component, OnInit } from '@angular/core';
 import { RentService } from './../service/rent.service';
 
@@ -26,6 +25,12 @@ export class RentComponent implements OnInit {
 
   ngOnInit() {
     this.getAll();
+    var Alugar = document.getElementById("button1").addEventListener('click', function alugar(row:any){    
+      alert('Alugar');
+    })
+    var Devolver = document.getElementById("button2").addEventListener('click', function devolver(row: any){
+      alert ('Devolver');
+    })
   }
 
   getAll(){
@@ -48,6 +53,8 @@ export class RentComponent implements OnInit {
 
     table1.style.display = "block";
     table2.style.display = "none";
+
+    this.getAll();
   }
 
   listarAlugadas(){
@@ -56,6 +63,8 @@ export class RentComponent implements OnInit {
 
     table1.style.display = "none";
     table2.style.display = "block";
+
+    this.rentService.getAlugadas();
   }
 
   save() {
@@ -96,5 +105,4 @@ export class RentComponent implements OnInit {
   cancel() {
     this.rent = {};
   }
-
 }

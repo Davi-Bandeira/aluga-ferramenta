@@ -22,6 +22,13 @@ export class ToolsComponent implements OnInit {
 
   ngOnInit() {
     this.getAll();
+    var Remover = document.getElementById("remove").addEventListener('click', function (event){    
+      var buttonRetornado = event.target;
+      //var colunaButton = buttonRetornado.parentNode;
+      //var linhaButton = colunaButton.parentNode;
+      //linhaButton.remove();  
+      alert("Remover");
+    })
   }
   getAll(){
     this.toolsService.getAll();
@@ -51,12 +58,6 @@ export class ToolsComponent implements OnInit {
 
     this.toolsService.buscar(term);
 
-  }
-  
-  remove(row: any){
-    var i = row.parentNode.parentNode.rowIndex;
-    console.log("Linha Removida => ", i);
-    //document.getElementById("ferramentas").deleteRow(i);
   }
 
   

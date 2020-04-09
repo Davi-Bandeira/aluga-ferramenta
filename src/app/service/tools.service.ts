@@ -48,6 +48,7 @@ export class ToolsService {
     var status = "Disponivel";
     var valor = tools.valor;
     var ID = id;
+    var Alugar = 'false';
 
     var dados = JSON.parse(localStorage.getItem("dadosFerramenta"));
 
@@ -60,7 +61,8 @@ export class ToolsService {
       nome: nome,
       status: status,
       valor: valor,
-      id: ID
+      id: ID,
+      alugar: Alugar
     }
 
     dados.push(auxRegistro);
@@ -114,7 +116,7 @@ export class ToolsService {
       newCell_2.appendChild(valor);
       newCell_3.appendChild(status);
 
-      newCell_4.innerHTML = "<button type= 'button' class='btn btn-outline-danger'>Remover</button>";
+      newCell_4.innerHTML = "<button type= 'button' id='remove' onclick='remover(this.rowIndex)' class='btn btn-outline-danger'>Remover</button>";
     });
   }
   
@@ -143,12 +145,10 @@ export class ToolsService {
       newCell_2.appendChild(valor);
       newCell_3.appendChild(status);
 
-      newCell_4.innerHTML = "<button type= 'button' class='btn btn-outline-danger'>Remover</button>";
+      newCell_4.innerHTML = "<button type= 'button' id='remove' onclick='remover(this)' class='btn btn-outline-danger'>Remover</button>";
 
     });
   }
-
-
 
 
   list() {
