@@ -1,4 +1,4 @@
-# Aluga-ferramanta
+# Aluga-ferramenta
 
 ## Description
 
