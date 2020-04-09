@@ -37,11 +37,6 @@ export class RentComponent implements OnInit {
     this.rentService.getAll();
   }
 
-
-
-  list() {
-    this.rentService.list().subscribe(dados => this.rents = dados);
-  }
   logoOut(){
     localStorage.setItem("acesso", "false");
     localStorage.setItem("usuarioAtual", "false");
@@ -67,42 +62,5 @@ export class RentComponent implements OnInit {
     this.rentService.getAlugadas();
   }
 
-  save() {
-    this.rentService.save(this.rent)
-      .subscribe(() => {
-        this.rent = {};
-        this.list();
-        this.msgSuccess = 'Rent created successfully.';
-      },
-        response => {
-          this.msgError = 'Tools must contain the customer and at least one product.';
-        }
-      );
-
-    this.msgError = null;
-    this.msgSuccess = null;
-  }
-
-  delete(rent: any) {
-    this.rentService.delete(rent)
-      .subscribe(() => {
-        this.list();
-        this.msgSuccess="Rent deleted successfully."
-      },
-        response => {
-          this.msgError = 'Could not delete rent.';
-        }
-      );
-
-    this.msgError = null;
-    this.msgSuccess = null;
-  }
-
-  update(rent: any) {
-    this.rent = rent;
-  }
-
-  cancel() {
-    this.rent = {};
-  }
+  
 }

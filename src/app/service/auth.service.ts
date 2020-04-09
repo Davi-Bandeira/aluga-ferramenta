@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { Injectable, EventEmitter } from '@angular/core';
+import { Injectable } from '@angular/core';
 
 import { Users } from './../login/users';
 

@@ -1,4 +1,3 @@
-import { AppComponent } from './../app.component';
 import { Router } from '@angular/router';
 import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -53,17 +52,4 @@ export class ClientsService {
 
     this.router.navigate(['/login']);
   }
-
-  list() {
-    return this.httpClient.get<any[]>(`${this.clientUrl}`);
-  }
-
-  save(client: any){
-    return this.httpClient.post(this.clientUrl, client);
-  }
-
-  delete(client: any){
-    return this.httpClient.delete(this.clientUrl+'/'+client.id);
-  }
-  
 }

@@ -118,30 +118,5 @@ export class RentService {
 
     });
   }
-
-  alugar(){
-    alert('Alugada');
-  }
-  
-  devolver(){
-    alert('Devolvida');
-  }
-
-  getFerramentas(){
-    return['1', 'Martelo', 'Sim', '10,00']
-  }
-
-  list() {
-    return this.httpClient.get<any[]>(`${this.rentUrl}`);
-  }
-
-  save(rent: any){
-    return this.httpClient.post(this.rentUrl, rent);
-  }
-
-  delete(rent: any){
-    return this.httpClient.delete(this.rentUrl+'/'+rent.id);
-  }
-
 }
 
